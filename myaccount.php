@@ -8,10 +8,10 @@
     
       if(isset($_GET['submit'])){
         $email = sha1($_SESSION['user_email']);
-        $query = "SELECT * FROM articles WHERE email='$email'";
+        $query = "SELECT title,body FROM articles WHERE email='$email'";
         $article_data_row = mysqli_query($database,$query);
-
-        $article_data = mysqli_fetch_assoc($article_data_row);
+       
+        $article_data = mysqli_fetch_all($article_data_row);
         
       }
       
@@ -57,16 +57,20 @@
          <?php 
          
          if(count($article_data) != 0){
-            // foreach($article_data as $ref=> $article){
-            echo mysqli_num_rows($article_data_row);
-            echo print_r($article_data);
-                 //echo "<h3>$ref</h3><br/>";
-                 //echo "<p>$article</p><br/>";
-                //  echo "<h3>$article[$ref]</h3><br/>";
-                //  echo "<p>$article['body']</p><br/>";
-
-             //}
+             foreach($article_data as $article){
+        
+                 echo "<h3>$article[0]</h3><br/>";
+                 echo "<p>$article[1]</p><br/>";
+                }
+            
             }
+            //  for($i = 0; $i <count($article_data); $i++){
+        
+            //      echo "<h3>$article_data[$i][0]</h3><br/>";
+            //      echo "<p>$article_data[$i][1]</p><br/>";
+            //     }
+            
+            // }
          
          ?>
        </div>
