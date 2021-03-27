@@ -1,0 +1,11 @@
+#signin_error_div{
+    background-color: rgba(197, 23, 23, 0.308);
+    color: white;
+}
+.signin_error{
+    margin: auto;
+    text-align: center;
+}
+#user_name{
+    text-align: center;
+}
