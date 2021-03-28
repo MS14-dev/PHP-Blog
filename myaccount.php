@@ -31,6 +31,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="./static/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
 </head>
 <body>
    <?php require_once('components/menu.php'); ?>
@@ -54,16 +55,30 @@
          <form action="myaccount.php" metod="GET">
            <input type="submit" class="btn btn-success" name="submit" value="My Articles" />
          </form>
+         
          <?php 
+         echo "<div id='all_user_articles_div' style='
+           height: 85vh;
+           overflow-x: hidden;
+           overflow-y: auto;
+           background: pink;
+         '>";
+        
          
          if(count($article_data) != 0){
+             echo "<div  style='position:fixed;'>";
+             echo "<button onclick='hideAllArticles()' class='btn btn-danger'> close </button>";
+             echo "</div>";
              foreach($article_data as $article){
-        
+                 echo "<br>";
+                 echo "<div style='background:#D6DBDF'>";
                  echo "<h3>$article[0]</h3><br/>";
                  echo "<p>$article[1]</p><br/>";
+                 echo "</div>";
+                 echo "<br>";
                 }
             
-            }
+          }
             //  for($i = 0; $i <count($article_data); $i++){
         
             //      echo "<h3>$article_data[$i][0]</h3><br/>";
@@ -71,12 +86,20 @@
             //     }
             
             // }
-         
+         echo "</div>"
          ?>
+         
+       
        </div>
-     
      </div>
    </div>
    
 </body>
+
+<script>
+    const hideAllArticles=()=>{
+    let div = document.getElementById('all_user_articles_div');
+    div.style.display = 'none'
+    }
+  </script>
 </html>

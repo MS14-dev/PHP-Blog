@@ -3,10 +3,10 @@
 if(isset($_SESSION['user_name'])){
 echo "<div class='col-md-12'>";
 echo "<nav class='navbar navbar-expand-lg navbar-light bg-light'>";
-echo     "<a  style='float:right;' href='signin.php'>Signin</a>";
-echo     "<a  style='float:right;' href='index.php'>Home</a>";
-echo     "<a  style='float:right;' href='logout.php'>Logout</a>";
-echo     "<a  style='float:right;' href='myaccount.php'>{$_SESSION['user_name']}</a>";
+echo     "<a  style='float:right;' href='signin.php'>Signin</a><hr/>";
+echo     "<a  style='float:right;' href='index.php'>Home</a><br>";
+echo     "<a  style='float:right;' href='logout.php'>Logout</a><br>";
+echo     "<a  style='float:right;' href='myaccount.php'>{$_SESSION['user_name']}</a><br>";
 echo "</nav>";
 echo "</div>";
 }

@@ -3,6 +3,7 @@
 <!-- control the validation part and other form actions -->
 <?php 
     session_start();
+    //require_once('static/database.php');
      
     $errors = array();
     if(isset($_POST['login'])){
@@ -42,6 +43,19 @@
         }
         
     }
+//function handling on article search
+    if(isset($_POST['search'])){
+
+        if(isset($_POST['search_input'])){
+            $search_input = $_POST['search_input'];
+            $search_article_query = "SELECT title,body FROM articles WHERE body LIKE '%$search_input%'";
+            $search_result = mysqli_query($database,$search_article_query);
+            
+            $search_result_rows = mysqli_fetch_all($search_result);
+            echo print_r($search_result_rows);
+        }
+
+    }
 
 
 ?>
@@ -57,33 +71,37 @@
     <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            
-            <?php require_once('./components/menu.php')?>
+    <?php require_once('./components/menu.php')?>
+    <div class="container">
+        <div class="row">  
             
             <div class="col-md-4">
+
+            </div>
+            <!--Search some articles-->
+            <div class="col-md-4">
+               <form action="index.php" method="POST">
+                   <input type="text" placeholder="search articles" name="search_input" >
+                   <input type="submit" value="search" name="search">
+                </form>
+            </div>
+            <!--Signin function-->
+            <div class="col-md-4">
+               
                 <?php 
-                   if(count($errors) != 0){
-                       foreach($errors as $error){
-                            echo "<h6> {$error} <h6>";
-                       }
+                    if(count($errors) != 0){
+                        foreach($errors as $error){
+                        echo "<h6> {$error} <h6>";
+                        }
                     }
                 ?>
-               <form action="index.php" method="post">
-                  <input type="email" name="email" placeholder="email"><br/><br/>
-                  <input type="password" name="password" placeholder="password"><br/><br/>
-                  <input class="btn btn-success" type="submit" value="login" name="login">
-               </form>
-            </div>
+                <form action="index.php" method="post">
+                    <input type="email" name="email" placeholder="email"><br/><br/>
+                    <input type="password" name="password" placeholder="password"><br/><br/>
+                    <input class="btn btn-success" type="submit" value="login" name="login">
+                </form>
+             </div>
         
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">HI</div>
-            <div class="col-md-4">HI</div>
-            <div class="col-md-4">HI</div>
         </div>
     </div>
 </body>
