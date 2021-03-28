@@ -52,7 +52,14 @@
             $search_result = mysqli_query($database,$search_article_query);
             
             $search_result_rows = mysqli_fetch_all($search_result);
-            echo print_r($search_result_rows);
+            if(count($search_result_rows) != 0){
+                echo print_r($search_result_rows);
+                $_SESSION['search_result_rows'] = $search_result_rows;
+                header('location:articleResult.php');
+            }
+            else{
+                echo "<h5 style='color:red'>Sorry No matched result</h5>";
+            }
         }
 
     }
