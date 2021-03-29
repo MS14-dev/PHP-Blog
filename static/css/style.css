@@ -1,3 +1,4 @@
+
 #signin_error_div{
     background-color: rgba(197, 23, 23, 0.308);
     color: white;
@@ -11,4 +12,57 @@
 }
 #all_user_articles_div{
  
+}
+/* homepage styles */
+#search_article_div{
+z-index: 1;
+}
+#login_form_div{
+z-index: 2;
+}
+#menu_div{
+    z-index: 3;
+}
+#index_div{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: -22%;
+}
+/* svg animation */
+#Layer_1,#Layer_2,#Layer_3{
+position: relative;
+left: 4%;
+margin: auto;
+text-align: center;
+animation: svg_ani 15s infinite linear;
+}
+
+
+@keyframes svg_ani{
+    25%{
+        /* transform: translateY(50px);
+        transform: translateX(50px); */
+        stop-color: rgb(250, 8, 8);
+        d: path('M1920,1080H0c131.77,0,111.38-18.7,400.5-116.5,217.89-109.78,586-190.59,971-200,408.84-168.32,91.09-155.17,314-110,35.09-48.77,268.88-710.66,149-169C1744.24,30.51,7736.71,8,1920,0Z');
+    }
+    50%{
+        /* transform: translateY(100px);
+        transform: translateX(50px); */
+        stop-color: rgb(8, 250, 8);
+        d: path('M1920,1080H0c131.77,0,111.38-18.7,400.5-116.5,217.89-109.78,586-190.59,471-200,408.84-168.32,91.09-155.17,514-110,35.09-48.77,268.88-710.66,149-169C1744.24,30.51,1336.71,8,1920,0Z');
+
+    }
+    75%{
+        /* transform: translateX(50px);
+        transform: translateY(50px); */
+        stop-color: rgb(60, 8, 250);
+        d: path('M1920,1080H0c131.77,0,321.38-18.7,400.5-116.5,217.89-109.78,186-190.59,471-200,268.84-168.32,391.09-155.17,514-110,35.09-48.77,268.88-110.66,149-169C1744.24,30.51,1336.71,8,1920,0Z');
+    }
+    100%{
+        /* transform: translateX(100px);
+        transform: translateY(50px); */
+        stop-color: rgb(250, 8, 121);
+        d: path('M1920,1080H0c131.77,0,31.38-18.7,400.5-116.5,217.89-179.78,186-190.59,271-200,268.84-168.32,311.09-155.17,214-110,35.09-48.77,468.88-110.66,149-169C1744.24,3.51,1236.71,8,2120,0Z');
+    }
 }

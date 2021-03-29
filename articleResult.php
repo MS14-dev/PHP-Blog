@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['search_result_rows'])){
+if(count($_SESSION['search_result_rows']) != 0){
 
 }
 else{
@@ -20,13 +20,14 @@ else{
     <title>Document</title>
 </head>
 <body>
+    <a href="index.php">Home</a>
     <?php 
     
      foreach($_SESSION['search_result_rows'] as $article){
          echo "<h3>$article[0]</h3>";
          echo "<p>$article[1]</p><br/>";
      }
-    
+    $_SESSION['search_result_rows'] = array();
     
     ?>
 </body>

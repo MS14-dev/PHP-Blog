@@ -74,26 +74,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mash Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <?php require_once('./components/menu.php')?>
-    <div class="container">
+    
+    <div class="container-fluid">
         <div class="row">  
-            
+            <div id="menu_div" class="col-md-12 container-fluid">
+               <?php require_once('./components/menu.php')?>
+            </div>
+    
             <div class="col-md-4">
-
+                
             </div>
             <!--Search some articles-->
-            <div class="col-md-4">
+            <div id="search_article_div" class="col-md-4">
                <form action="index.php" method="POST">
                    <input type="text" placeholder="search articles" name="search_input" >
                    <input type="submit" value="search" name="search">
                 </form>
             </div>
             <!--Signin function-->
-            <div class="col-md-4">
+            <div id="login_form_div" class="col-md-4">
                
                 <?php 
                     if(count($errors) != 0){
@@ -108,8 +111,29 @@
                     <input class="btn btn-success" type="submit" value="login" name="login">
                 </form>
              </div>
+             <div class="container-fluid"  id="index_div">
+               <svg 
+                  id="Layer_1" 
+                  data-name="Layer 1" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  xmlns:xlink="http://www.w3.org/1999/xlink" 
+                  viewBox="0 0 1920 1080"
+               >
+
+               <defs>
+               <style>.cls-1{fill:url(#linear-gradient);}</style>
+
+               <linearGradient id="linear-gradient" y1="540" x2="1920" y2="540" gradientUnits="userSpaceOnUse">
+               <stop id="Layer_2" offset="0" stop-color="aqua"/><stop offset="0.97" stop-color="#93278f"/>
+               </linearGradient></defs><title>main</title>
+               <path id="Layer_3" class="cls-1" d="M1920,1080H0c131.77,0,321.38-18.7,515.5-116.5,217.89-109.78,186-190.59,471-369,268.84-168.32,391.09-155.17,514-326,35.09-48.77,68.88-110.66,149-169C1744.24,30.51,1846.71,8,1920,0Z"/>
+
+               </svg>
+            </div>
         
         </div>
     </div>
+
+    
 </body>
 </html>
